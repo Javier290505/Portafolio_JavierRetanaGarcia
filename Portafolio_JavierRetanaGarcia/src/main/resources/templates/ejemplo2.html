@@ -1,38 +1,24 @@
 <!DOCTYPE html>
 
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 
-    <head>
-        <title>TechShop - Mis Autos</title>
-        <meta charset="UTF-8">
-
-        <link href="/css/estilos.css"
-              rel="stylesheet"
-              type="text/css"/>
+    <head th:replace="~{general/fragmentos :: head}">
     </head>
 
-    <body>
+    <body class="d-flex flex-column min-vh-100">
 
-        <header>
-    <nav>
+        <header th:replace="~{general/fragmentos :: header}">
+        </header>
 
         <a class="logo nav-link" href="/">
             TechShop
         </a>
 
-        <ul class="nav-menu">
+        <main class="flex-grow-1">
 
-            <li class="nav-menu-item">
-                <a class="nav-link menu-item" href="/ejemplo2">
-                    Mis Autos
-                </a>
-            </li>
+            <div class="container mt-4">
 
-            <li class="nav-menu-item">
-                <a class="nav-link menu-item" href="/multimedia">
-                    Multimedia
-                </a>
-            </li>
+                <div class="row">
 
             <li class="nav-menu-item">
                 <a class="nav-link menu-item" href="/iframes">
@@ -40,7 +26,7 @@
                 </a>
             </li>
 
-        </ul>
+                    <aside class="col-md-3">
 
     </nav>
 </header>
@@ -48,37 +34,41 @@
 
         <aside>
 
-            <h1>Mis Autos</h1>
+                        <h1>Mis Autos</h1>
 
-            <p>
-                Los autos que en mi subconsciente llevo todos los dias...
-            </p>
+                        <p>
+                            Los autos que en mi subconsciente llevo todos los dias...
+                        </p>
 
-        </aside>
-
-
-        <section>
-
-            <h2>Lunes</h2>
-
-            <img src="/img/lunes.jpg"
-                 width="300"
-                 alt="Auto del lunes"/>
+                    </aside>
 
 
-            <h2>Martes</h2>
+                    <section class="col-md-9">
 
-            <img src="https://www.record.com.mx/sites/default/files/articulos/2023/03/30/hennessey_venom_f5_roadster-6.jpg"
-                 width="300"
-                 alt="Auto del martes"/>
+                        <h2>Lunes</h2>
 
-        </section>
+                        <img th:src="@{/img/lunes.jpg}"
+                             class="img-fluid mb-4"
+                             width="300"
+                             alt="Auto del lunes"/>
 
 
-        <footer>
+                        <h2>Martes</h2>
 
-            Todos los Derechos Reservados TechShop 2025 &COPY;
+                        <img src="https://www.record.com.mx/sites/default/files/articulos/2023/03/30/hennessey_venom_f5_roadster-6.jpg"
+                             class="img-fluid mb-4"
+                             width="300"
+                             alt="Auto del martes"/>
 
+                    </section>
+
+                </div>
+
+            </div>
+
+        </main>
+
+        <footer th:replace="~{general/fragmentos :: footer}">
         </footer>
 
     </body>

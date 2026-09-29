@@ -1,38 +1,24 @@
 <!DOCTYPE html>
 
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 
-    <head>
-        <title>TechShop - Multimedia</title>
-        <meta charset="UTF-8">
-
-        <link href="/css/estilos.css"
-              rel="stylesheet"
-              type="text/css"/>
+    <head th:replace="~{general/fragmentos :: head}">
     </head>
 
     <body>
 
-       <header>
-    <nav>
+        <header th:replace="~{general/fragmentos :: header}">
+        </header>
 
         <a class="logo nav-link" href="/">
             TechShop
         </a>
 
-        <ul class="nav-menu">
+        <div class="container mt-4">
 
-            <li class="nav-menu-item">
-                <a class="nav-link menu-item" href="/ejemplo2">
-                    Mis Autos
-                </a>
-            </li>
+            <div class="row">
 
-            <li class="nav-menu-item">
-                <a class="nav-link menu-item" href="/multimedia">
-                    Multimedia
-                </a>
-            </li>
+                <aside class="col-md-3">
 
             <li class="nav-menu-item">
                 <a class="nav-link menu-item" href="/iframes">
@@ -48,62 +34,64 @@
 
         <aside>
 
-            <h1>Multimedia</h1>
+                    <h1>Multimedia</h1>
 
-            <p>
-                Incorporación de recursos multimedia en el sitio web...
-            </p>
+                    <p>
+                        Incorporación de recursos multimedia en el sitio web...
+                    </p>
 
-        </aside>
-
-
-        <section>
-
-            <h2>Uso de Multimedia</h2>
+                </aside>
 
 
-            <article>
+                <section class="col-md-9">
 
-                <h3>Música Celta</h3>
-
-                <audio controls>
-
-                    <source src="/audios/musica.mp3"
-                            type="audio/mpeg">
-
-                    Your browser does not support the
-                    <code>audio</code> tag.
-
-                </audio>
-
-            </article>
+                    <h2>Uso de Multimedia</h2>
 
 
-            <article>
+                    <article class="mb-4">
 
-                <h3>Película de Acción</h3>
+                        <h3>Música Celta</h3>
 
-                <video width="320"
-                       height="240"
-                       controls>
+                        <audio controls>
 
-                    <source src="/videos/torpedo.mp4"
-                            type="video/mp4">
+                            <source src="/audio/musica.mp3"
+                                    type="audio/mpeg">
 
-                    Your browser does not support the
-                    <code>video</code> tag.
+                            Your browser does not support the
+                            <code>audio</code> tag.
 
-                </video>
+                        </audio>
 
-            </article>
-
-        </section>
+                    </article>
 
 
-        <footer>
+                    <article>
+
+                        <h3>Película de Acción</h3>
+
+                        <video width="320"
+                               height="240"
+                               controls>
+
+                            <source src="/videos/torpedo.mp4"
+                                    type="video/mp4">
+
+                            Your browser does not support the
+                            <code>video</code> tag.
+
+                        </video>
+
+                    </article>
+
+                </section>
+
+            </div>
+
+        </div>
 
             Todos los Derechos Reservados TechShop 2025 &COPY;
 
+        <footer th:replace="~{general/fragmentos :: footer}">
         </footer>
 
     </body>

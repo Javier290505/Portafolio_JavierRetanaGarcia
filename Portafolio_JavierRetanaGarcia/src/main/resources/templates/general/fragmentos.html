@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+    
+    <head th:fragment="head">
+
+        <meta charset="UTF-8">
+
+        <title>[[#{aplicacion.titulo}]]</title>
+
+
+        <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"
+              rel="stylesheet"/>
+
+        <!-- Bootstrap Icons -->
+        <link th:href="@{/webjars/bootstrap-icons/font/bootstrap-icons.css}"
+              rel="stylesheet"/>
+
+    </head>
+
+
+    <body>
+
+       <header th:fragment="header">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+
+        <div class="container">
+
+            <a class="navbar-brand"
+               th:href="@{/}">
+                [[#{aplicacion.titulo}]]
+            </a>
+
+            <button class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav">
+
+                <span class="navbar-toggler-icon"></span>
+
+            </button>
+
+            <div class="collapse navbar-collapse"
+                 id="navbarNav">
+
+                <ul class="navbar-nav ms-auto">
+
+                    <li class="nav-item">
+                        <a class="nav-link"
+                           th:href="@{/ejemplo2}">
+                            Mis Autos
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link"
+                           th:href="@{/multimedia}">
+                            Multimedia
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link"
+                           th:href="@{/iframes}">
+                            iFrames
+                        </a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+
+                        <a class="nav-link dropdown-toggle"
+                           href="#"
+                           role="button"
+                           data-bs-toggle="dropdown">
+                            [[#{plantilla.idioma}]]
+                        </a>
+
+                        <ul class="dropdown-menu">
+
+                            <li>
+                                <a class="dropdown-item"
+                                   th:href="@{/(lang=es)}">
+                                    Español
+                                </a>
+                            </li>
+
+                            <li>
+                                <a class="dropdown-item"
+                                   th:href="@{/(lang=en)}">
+                                    English
+                                </a>
+                            </li>
+
+                            <li>
+                                <a class="dropdown-item"
+                                   th:href="@{/(lang=fr)}">
+                                    Française
+                                </a>
+                            </li>
+
+                            <li>
+                                <a class="dropdown-item"
+                                   th:href="@{/(lang=pt)}">
+                                    Portuguese
+                                </a>
+                            </li>
+
+                        </ul>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+</header>
+
+
+        <footer th:fragment="footer"
+        class="bg-info text-white py-3 mt-auto">
+
+    <div class="container text-center">
+
+        <p class="mb-0">
+            [[#{plantilla.derechos}]]
+        </p>
+
+    </div>
+
+    <script th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}">
+    </script>
+
+</footer>
+
+    </body>
+
+</html>

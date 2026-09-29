@@ -1,54 +1,39 @@
 <!DOCTYPE html>
 
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 
-    <head>
-        <title>TechShop</title>
-        <meta charset="UTF-8">
-
-        <link href="/css/estilos.css"
-              rel="stylesheet"
-              type="text/css"/>
+    <head th:replace="~{general/fragmentos :: head}">
     </head>
 
-    <body>
+    <body class="d-flex flex-column min-vh-100">
 
-        <header>
-    <nav>
+        <header th:replace="~{general/fragmentos :: header}">
+        </header>
 
         <a class="logo nav-link" href="/">
             TechShop
         </a>
 
-        <ul class="nav-menu">
+        <main class="flex-grow-1">
 
-            <li class="nav-menu-item">
-                <a class="nav-link menu-item" href="/ejemplo2">
-                    Mis Autos
-                </a>
-            </li>
+            <section class="py-3">
 
-            <li class="nav-menu-item">
-                <a class="nav-link menu-item" href="/multimedia">
-                    Multimedia
-                </a>
-            </li>
+                <div class="container">
 
-            <li class="nav-menu-item">
-                <a class="nav-link menu-item" href="/iframes">
-                    iFrames
-                </a>
-            </li>
+                    <div class="row">
 
-        </ul>
+                        <div class="col-md-12">
 
-    </nav>
-</header>
+                            <h2>
+                                <i class="bi bi-gear-fill"></i>
+                                [[#{plantilla.suTienda}]]
+                            </h2>
 
+                        </div>
 
-        <aside>
+                    </div>
 
-        </aside>
+                </div>
 
 
         <section>
@@ -57,13 +42,13 @@
                 Esta es la tienda en linea del curso
             </h2>
 
-        </section>
+            </section>
 
+        </main>
 
         <footer>
 
-            Todos los Derechos Reservados TechShop 2025 &COPY;
-
+        <footer th:replace="~{general/fragmentos :: footer}">
         </footer>
 
     </body>
