@@ -1,4 +1,3 @@
-alert("RUTINAS.JS CARGADO");
 // funcion para hacer un preview de una imagen 
 function mostrarImagen(input) {
     if (input.files && input.files[0]) {
@@ -67,3 +66,53 @@ setTimeout(() => {
 }, 5000);
 
 
+let idProductoSeleccionado = null;
+
+document.addEventListener('DOMContentLoaded', function () {
+
+    const confirmModalProducto =
+            document.getElementById('confirmModalProducto');
+
+    if (confirmModalProducto) {
+
+        confirmModalProducto.addEventListener(
+                'show.bs.modal',
+                function (event) {
+
+                    const button = event.relatedTarget;
+
+                    idProductoSeleccionado =
+                            button.getAttribute('data-id');
+
+                    const descripcion =
+                            button.getAttribute('data-descripcion');
+
+                    document.getElementById(
+                            'modalDescripcionProducto'
+                    ).textContent = descripcion;
+
+                    console.log(
+                            "Producto seleccionado:",
+                            idProductoSeleccionado
+                    );
+                }
+        );
+    }
+});
+
+
+function confirmarEliminacionProducto() {
+
+    if (idProductoSeleccionado) {
+
+        window.location.href =
+                '/producto/eliminar/' +
+                idProductoSeleccionado;
+
+    } else {
+
+        alert(
+            "No se pudo obtener el ID del producto."
+        );
+    }
+}
