@@ -24,9 +24,9 @@ public class Producto implements Serializable {
     @Column(name = "id_producto")
     private Long idProducto;
 
-    @NotNull
-    @Column(name = "id_categoria")
-    private Long idCategoria;
+    @ManyToOne
+    @JoinColumn(name = "id_categoria")
+    private Categoria categoria;
 
     @NotEmpty
     private String descripcion;

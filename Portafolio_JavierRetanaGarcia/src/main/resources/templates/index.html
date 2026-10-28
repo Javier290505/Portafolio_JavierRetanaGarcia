@@ -8,7 +8,7 @@
 
         <!-- BARRA BLANCA SUPERIOR -->
         <header th:replace="~{general/fragmentos :: header}"></header>
-
+        
 
         <!-- FRANJA VERDE PEQUEÑA -->
         <div class="bg-success text-white">
@@ -26,6 +26,14 @@
             </div>
 
         </div>
+        
+        <!-- Pestañas de categorías -->
+        <section th:replace="~{consultas/fragmentos :: tabs}">
+        </section>
+        
+        <!-- TARJETAS DE PRODUCTOS -->
+        <section th:replace="~{consultas/fragmentos :: tarjetas(true)}">
+        </section>
 
 
         <!-- ESPACIO BLANCO QUE EMPUJA EL FOOTER -->

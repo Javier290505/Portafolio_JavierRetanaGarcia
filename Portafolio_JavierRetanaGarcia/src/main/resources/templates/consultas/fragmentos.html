@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<body>
+    
+    <style>
+    .tarjeta-producto {
+        transition: transform 0.3s ease;
+    }
+
+    .tarjeta-producto:hover {
+        transform: scale(1.05);
+        z-index: 10;
+    }
+    </style>
+
+    <section th:fragment="tabs" class="py-3">
+
+        <ul class="nav nav-underline justify-content-center">
+
+
+            <li class="nav-item">
+
+                <a th:href="@{/}"
+                   class="nav-link"
+                   th:classappend="${idCategoriaActual == null} ? 'active'">
+
+                    Todas
+
+                </a>
+
+            </li>
+
+            <!-- CATEGORÍAS -->
+            <li th:each="c : ${categorias}"
+                class="nav-item">
+
+                <a class="nav-link"
+                   th:href="@{/consultas/{id}(id=${c.idCategoria})}"
+                   th:classappend="${idCategoriaActual != null
+                                   and idCategoriaActual.equals(c.idCategoria)}
+                                   ? 'active'"
+                   th:text="${c.descripcion}">
+                </a>
+
+            </li>
+
+        </ul>
+
+    </section>
+
+    <section th:fragment="tarjetas(mostrarCarrito)"
+         class="container py-4">
+
+    <style>
+        .tarjeta-producto {
+            transition: transform 0.25s ease,
+                        box-shadow 0.25s ease;
+        }
+
+        .tarjeta-producto:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.20);
+            z-index: 10;
+        }
+
+        .imagen-producto {
+            height: 160px;
+            object-fit: contain;
+            padding: 12px;
+        }
+
+        .detalle-producto {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    </style>
+
+
+    <p th:if="${productos == null or productos.empty}"
+       class="text-center">
+        No hay productos para mostrar.
+    </p>
+
+
+    <div class="row row-cols-1 row-cols-sm-2
+                row-cols-md-3 row-cols-lg-4 g-3">
+
+        <div th:each="p : ${productos}"
+             class="col">
+
+            <div class="card tarjeta-producto h-100">
+
+                <!-- IMAGEN -->
+                <img th:if="${p.rutaImagen != null}"
+                     th:src="${p.rutaImagen}"
+                     th:alt="${p.descripcion}"
+                     class="card-img-top imagen-producto">
+
+
+                <!-- NOMBRE -->
+                <div class="card-body text-center py-2">
+
+                    <h6 class="card-title mb-0"
+                        th:text="${p.descripcion}">
+                    </h6>
+
+                </div>
+
+
+                <!-- DETALLE -->
+                <div class="card-body border-top py-2">
+
+                    <small class="text-muted detalle-producto d-block"
+                           th:text="${p.detalle}">
+                    </small>
+
+                </div>
+
+
+                <!-- PRECIO / EXISTENCIAS / CARRITO -->
+                <div class="card-footer bg-white">
+
+                    <div class="d-flex align-items-center
+                                justify-content-between gap-2">
+
+                        <strong class="text-success">
+                            [[${#numbers.formatCurrency(p.precio)}]]
+                        </strong>
+
+
+                        <span class="badge bg-success">
+                            [[${p.existencias}]] unidades
+                        </span>
+
+
+                        <button th:if="${mostrarCarrito}"
+                                type="button"
+                                class="btn btn-primary btn-sm">
+
+                            <i class="bi bi-cart-fill"></i>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+</body>
+
+</html>
